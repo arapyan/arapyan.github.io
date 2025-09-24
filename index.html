@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apyan Lab | Brandeis University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif;
+        }
+        .section {
+            scroll-margin-top: 24px;
+        }
+        /* Custom scrollbar for sidebar */
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid #3b82f6; /* blue-500 */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="md:flex">
+        <!-- Mobile Header -->
+        <div class="bg-white md:hidden p-4 flex justify-between items-center border-b sticky top-0 z-40">
+            <h1 class="text-lg font-bold text-slate-900">Aram Apyan</h1>
+            <button id="mobile-menu-button" class="p-2 rounded-md text-slate-600 hover:bg-slate-100">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Left Sidebar -->
+        <aside id="sidebar" class="bg-white w-full md:w-64 lg:w-72 md:h-screen md:sticky top-0 flex-shrink-0 p-8 border-r transform -translate-x-full md:transform-none transition-transform duration-300 ease-in-out z-30 sidebar-scroll overflow-y-auto">
+            <div class="text-center">
+                <a href="#">
+                    <img src="prof_pic.jpg" alt="Aram Apyan" class="w-32 h-32 rounded-full mx-auto shadow-lg object-cover">
+                </a>
+                <h1 class="text-3xl font-bold mt-4 text-slate-900">Apyan Lab</h1>
+                <p class="text-slate-500 mt-2">Brandeis University</p>
+                <p class="text-slate-500 mt-2 font-semibold">PI: Aram Apyan</p>
+            </div>
+            
+            <div class="flex justify-center space-x-4 mt-6">
+                <!-- Social Icons -->
+                <a href="#" class="text-slate-400 hover:text-blue-500" title="Email"><svg class="w-5 h-5" xmlns="arapyan@brandeis.edu" viewBox="0 0 24 24" fill="currentColor"><path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"/></svg></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500" title="INSPIRE-HEP"><svg xmlns="https://inspirehep.net/authors/1060487" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" /><path fill-rule="evenodd" d="M3.087 9l.54 9.176A3 3 0 006.62 21h10.757a3 3 0 002.995-2.824L20.914 9H3.087zM12 10.5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5a.75.75 0 01.75-.75z" clip-rule="evenodd" /></svg></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500" title="LinkedIn"><svg class="w-5 h-5" xmlns="https://www.linkedin.com/in/aram-apyan-33013a38/" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75S7.466 6.732 6.5 6.732zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500" title="GitHub"><svg class="w-5 h-5" xmlns="https://github.com/arapyan" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg></a>
+            </div>
+                
+
+            <nav class="mt-8">
+                <ul class="space-y-2">
+                    <li><a href="#about" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">About</a></li>
+                    <li><a href="aram_cv_short-2.pdf" target="_blank" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">CV</a></li>
+                    <li><a href="#news" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">News</a></li>
+                    <li><a href="#research" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">Research</a></li>
+                    <li><a href="#team" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">People</a></li>
+                    <li><a href="#publications" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">Publications</a></li>
+                    <li><a href="#teaching" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">Teaching</a></li>
+                    <li><a href="#resources" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">Resources</a></li>
+                    <li><a href="#contact" class="nav-link block font-semibold text-slate-600 hover:text-blue-500">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0">
+            <div class="p-6 sm:p-8 md:p-12">
+                <!-- About Section -->
+                <section id="about" class="section mb-16">
+                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">About</h2>
+                    <div class="space-y-4 text-slate-600 leading-relaxed">
+                        <p>I am an Assistant Professor of Physics at Brandeis University. My research is focused on particle physics at the energy frontier. As part of the <a href="https://atlas.cern" class="text-blue-500 hover:underline">ATLAS experiment</a> at the <a href="https://home.cern/science/accelerators/large-hadron-collider" class="text-blue-500 hover:underline">CERN Large Hadron Collider</a>, our group performs measurements exploring the electroweak sector of standard model of particle physics and searches for new physics beyond the standard model. We are also interested in the design, construction, and commissioning of next generation particle detectors. Our group members perform research at Brandeis, <a href="https://home.cern" class="text-blue-500 hover:underline">CERN</a>, <a href="https://www.bnl.gov/world" class="text-blue-500 hover:underline">BNL</a>, and <a href="https://www6.slac.stanford.edu" class="text-blue-500 hover:underline">SLAC</a>.</p>
+                        <p>Before joining Brandeis University, I was a Research Associate at Fermi National Accelerator Laboratory from 2017-2021. I received my Ph.D. in physics at Massachusetts Institute of Technology in 2017.</p>
+                        <p> <b>Open Positions:</b> We are always looking for motivated postdocs, graduate students, and undergraduate students interested in experimental particle physics. Please send an email with your CV. Prospective graduate students: apply to the <a href="https://www.brandeis.edu/physics/graduate/index.html"class="text-blue-500 hover:underline">Brandeis PhD Program</a> and include my name in your application.</p>
+
+                    </div>
+                </section>
+
+                <!-- News Section -->
+                <section id="news" class="section mb-16">
+                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">News</h2>
+                    <div class="relative border-l-2 border-slate-200 pl-8 space-y-8">
+                        <!-- Timeline Item -->
+                        <div class="relative timeline-item">
+                            <p class="text-sm text-slate-500">July 2025</p>
+                            <h3 class="font-semibold text-slate-800 mt-1">Daniel and Aram were featured in a <a href="https://www.symmetrymagazine.org/article/lhc-scientists-find-relics-of-early-universe-living-on-in-particle-spins?language_content_entity=und"class="text-blue-500 hover:underline">Symmetry Magazine article</a>.
+                            </h3>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Research Section -->
+                <section id="research" class="section mb-16">
+                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">Research</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Research Card -->
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md border transition-shadow hover:shadow-xl">
+                             <img src="https://atlas.cern/sites/default/files/2025-04/ATLAS-Event-Display-Longitudinally-Polarized-W-bosons-banner.jpg" class="w-full h-40 object-cover" alt="Electroweak and Higgs physics with LHC Run 2 and 3 data.">
+                             <div class="p-4">
+                                <h3 class="font-bold text-slate-900">Electroweak and Higgs physics </h3>
+                                <p class="text-sm text-slate-600 mt-1">LHC data analysis with the ATLAS detector.</p>
+                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Team Section -->
+                <section id="team" class="section mb-16">
+                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">People</h2>
+                    <h3 class="text-2xl font-semibold mb-6 text-slate-800">Current Members</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-12">
+                        <!-- Team Member -->
+                        <div class="text-center">
+                            <img src="https://www.brandeis.edu/physics/people/images/research-scientists/munoz-daniel.jpg" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Daniel Camarero Munoz</h3>
+                            <p class="text-sm text-slate-500">Postdoctoral Fellow</p>
+                        </div>
+                         <!-- Team Member -->
+                         <div class="text-center">
+                            <img src="https://placehold.co/400x400/1e293b/ffffff?text=..." class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Line Delagrange</h3>
+                            <p class="text-sm text-slate-500">Postdoctoral Fellow</p>
+                        </div>
+                         <!-- Team Member -->
+                         <div class="text-center">
+                            <img src="https://www.brandeis.edu/physics/images/michael-cardiff.jpg" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Michael Cardiff</h3>
+                            <p class="text-sm text-slate-500">Graduate Student</p>
+                        </div>
+                         <!-- Team Member -->
+                         <div class="text-center">
+                            <img src="https://www.brandeis.edu/physics/people/images/students/abdullah1.jpg" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Abdullah Sayed</h3>
+                            <p class="text-sm text-slate-500">Graduate Student</p>
+                        </div>
+                        <!-- Team Member -->
+                         <div class="text-center">
+                            <img src="https://www.brandeis.edu/physics/images/siddharth-singh.jpg" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Siddharth Singh</h3>
+                            <p class="text-sm text-slate-500">Graduate Student</p>
+                        </div>
+                        <!-- Team Member -->
+                         <div class="text-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGFTKnfmj5GHw/profile-displayphoto-shrink_400_400/B4EZeMKGuoHIAk-/0/1750403149296?e=1761782400&v=beta&t=H6SrDR5B4R5ptjuKJD2THnUPixZirZh3zsiods2EDyI" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Joy Ren</h3>
+                            <p class="text-sm text-slate-500">Undergraduate Student</p>
+                        </div>
+                          <!-- Team Member -->
+                         <div class="text-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E03AQEAMm5RVjlRyQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700402779031?e=1761782400&v=beta&t=Bi5nqq4rQz4fByc2OJ58rqFmCb_JZhSQGEm1OyW0Zx8" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Zach Grossman</h3>
+                            <p class="text-sm text-slate-500">Undergraduate Student</p>
+                        </div>
+                            <div class="text-center">
+                            <img src="https://placehold.co/400x400/1e293b/ffffff?text=..." class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800"> Jack Morrison</h3>
+                            <p class="text-sm text-slate-500">Undergraduate Student</p>
+                        </div>
+                        <!--   </div>
+                            <div class="text-center">
+                            <img src="https://placehold.co/400x400/1e293b/ffffff?text=..." class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800"> Ben Kadener</h3>
+                            <p class="text-sm text-slate-500">Undergraduate Student</p>
+                        </div> -->
+                    </div>
+
+                    <h3 class="text-2xl font-semibold mb-6 text-slate-800">Alumni</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                        <!-- Alumni Member -->
+                        <div class="text-center">
+                            <img src="https://www.brandeis.edu/physics/people/images/research-scientists/solomon-shalu.jpg" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Shalu Solomon</h3>
+                            <p class="text-sm text-slate-500">Postdoctoral Fellow</p>
+                            <p class="text-sm text-slate-500">Now: Industry</p>
+                        </div>
+                         <!-- Alumni Member -->
+                         <div class="text-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E03AQH61oCUPv0GHw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1711566443256?e=2147483647&v=beta&t=NMs0TOp-o1KUeOnLMhVTszN7rbmfsp5oHj7ovrXdeXo" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Todd Zenger</h3>
+                           <p class="text-sm text-slate-500">Graduate Student</p>
+                            <p class="text-sm text-slate-500">Now: Research Associate at Fermilab</p>
+                        </div>
+                              <!-- Alumni Member -->
+                         <div class="text-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQFOIAIOCfRBgg/profile-displayphoto-shrink_400_400/B56ZbFDrOUGkAg-/0/1747062797719?e=1761782400&v=beta&t=wNYM-uIWehNnc36TVS19Y5Gc34lEhoiecpHffUvGSoo" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Samuel Kelson</h3>
+                           <p class="text-sm text-slate-500">Undergraduate Student</p>
+                            <p class="text-sm text-slate-500">Now: Ph.D. Student at the University of Wisconsin-Madison</p>
+                        </div>
+                                    <!-- Alumni Member -->
+                         <div class="text-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQH1Mog9f3De1Q/profile-displayphoto-shrink_400_400/B56Zc7mxQMHEAk-/0/1749051708948?e=1761782400&v=beta&t=DVTDQP67kUvkpIIgALtBIWhOL7uYwpxVeCyHqXAi2DI" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Dowling Wong</h3>
+                           <p class="text-sm text-slate-500">Undergraduate Student</p>
+                            <p class="text-sm text-slate-500">Now: Ph.D. Student at Karlsruhe Institute of Technology</p>
+                        </div>
+                                        <!-- Alumni Member -->
+                         <div class="text-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFq9_pLdqH7xw/profile-displayphoto-scale_400_400/B4DZihAOlfGsAg-/0/1755047848753?e=1761782400&v=beta&t=ehLh8rKb5R0pFmWLf7inEWdWnvKfHLzAJNRa1aeN_Tc" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Aishan D Dias</h3>
+                           <p class="text-sm text-slate-500">Undergraduate Student</p>
+                            <p class="text-sm text-slate-500">Now: Ph.D. Student at Texas A&M University</p>
+                        </div>
+                            <div class="text-center">
+                            <img src="https://placehold.co/400x400/1e293b/ffffff?text=..." class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <h3 class="font-bold text-slate-800">Will Sorger</h3>
+                           <p class="text-sm text-slate-500">Undergraduate Student</p>
+                            <p class="text-sm text-slate-500">Now: MS Student at Brandeis University</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Publications Section -->
+                <section id="publications" class="section">
+                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">Selected Recent Publications</h2>
+                     <div class="space-y-6">
+                        <!-- Publication Item -->
+                        <div>
+                            <h3 class="text-slate-800">ATLAS Collaboration, ”Observation of double parton scattering in same-sign W boson pair production in pp collisions at √s= 13 TeV with the ATLAS detector”, Accepted at PLB (2025), <a href=" https://arxiv.org/abs/2505.08313"class="text-blue-500 hover:underline">arXiv:2505.08313</a> </h3>
+                        </div>
+                         <!-- Publication Item -->
+                        <div>
+                            <h3 class="text-slate-800">ATLAS Collaboration, ”Evidence for longitudinally polarized W bosons in the electroweak production of same-sign W boson pairs in association with two jets with the ATLAS detector”, Phys. Rev. Lett. 135 (2025) 111802, <a href="https://arxiv.org/abs/2503.11317"class="text-blue-500 hover:underline">arXiv:2503.11317</a> </h3>
+                        </div>
+                           <div>
+                            <h3 class="text-slate-800">A. Apyan et al., ”Performance measurements of the electromagnetic calorimeter and readout electronics system for the DarkQuest experiment”, NIM A, Volume 1080, (2025), 170792, <a href="https://arxiv.org/abs/2502.20590"class="text-blue-500 hover:underline">arXiv:2502.20590</a> </h3>
+                        </div>
+                        <div>
+                            <h3 class="text-slate-800">A. Apyan et al., ”Sensitivity to longitudinal vector boson scattering in W<sup>±</sup>W<sup>±</sup>jj at future hadron colliders”, Accepted at PRD (2025),  <a href="https://arxiv.org/abs/2203.07994"class="text-blue-500 hover:underline">arXiv:2203.07994</a> </h3>
+                        </div>
+                        <div>
+                            <h3 class="text-slate-800">ATLAS Collaboration, ”Combination of searches for singly and doubly charged Higgs bosons produced via vector-boson fusion in proton-proton collisions at √s= 13 TeV with the ATLAS detector”, Phys. Lett. B 860 (2025),  <a href="https://arxiv.org/abs/2407.10798"class="text-blue-500 hover:underline">arXiv:2407.10798</a> </h3>
+                        </div>
+                           <div>
+                            <h3 class="text-slate-800">CMS Collaboration, ”Measurement of the inclusive cross sections for W and Z boson production in proton-proton collisions at √s= 5.02 and 13 TeV”, JHEP 04 (2025) 162, <a href="https://arxiv.org/abs/2408.03744"class="text-blue-500 hover:underline">arXiv:2408.03744</a> </h3>
+                        </div>
+                           <div>
+                            <h3 class="text-slate-800">ATLAS Collaboration, ”Search for heavy Majorana neutrinos in e<sup>±</sup>e<sup>±</sup> and e<sup>±</sup>µ<sup>±</sup> final states via WW scattering in pp collisions at √s= 13 TeV with the ATLAS detector”, Phys. Lett. B 856 (2024), <a href="https://arxiv.org/abs/2403.15016"class="text-blue-500 hover:underline">arXiv:2403.15016</a> </h3>
+                        </div>
+                          <div>
+                            <h3 class="text-slate-800">ATLAS Collaboration, ”Measurement and interpretation of same-sign W boson pair production in association with two jets in pp collisions at √s= 13 TeV with the ATLAS
+detector”, JHEP 04 (2024) 026, <a href="https://arxiv.org/abs/2312.00420"class="text-blue-500 hover:underline">arXiv:2312.00420</a> </h3>
+                        </div>
+                           <div>
+                            <h3 class="text-slate-800">Brad Abbott, et al., ”Anomalous production of massive gauge boson pairs at muon colliders”, Phys. Rev. D 108 093009 (2023), <a href="https://arxiv.org/abs/2203.08135"class="text-blue-500 hover:underline">arXiv:2203.08135</a> </h3>
+                        </div>
+                           <div>
+                            <h3 class="text-slate-800">ATLAS Collaboration, ”Search for Majorana neutrinos in same-sign WW scattering events from pp collisions at √s= 13 TeV”, Eur. Phys. J. C 83 (2023) 824, <a href="https://arxiv.org/abs/2305.14931"class="text-blue-500 hover:underline">arXiv:2305.14931</a> </h3>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Teaching Section -->
+                <section id="teaching" class="section mt-16">
+                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">Teaching</h2>
+                     <div class="space-y-6">
+                        <!-- Course Item -->
+                        <div>
+                            <h3 class="font-semibold text-slate-800">Phys-107B/167B: Particle Physics</h3>
+                            <p class="text-sm text-slate-600 mt-1">The phenomenology of elementary particles and the strong, weak, and electromagnetic interactions are studied. Properties of particles, quarks, neutrinos, vector bosons, Higgs particles, supersymmetry, symmetries, and conservation laws are covered. (Spring 2024, 2026)</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-slate-800">Phys-20A: Vibrations and Waves</h3>
+                            <p class="text-sm text-slate-600 mt-1">A survey of phenomena, ideas, and mathematics underlying modern physics-waves and oscillations, fourier analysis, and foundations of wave mechanics. (Fall 2024)</p>
+                        </div>
+                      <div>
+                            <h3 class="font-semibold text-slate-800">Phys-15B: Advanced Introductory Physics II</h3>
+                            <p class="text-sm text-slate-600 mt-1">An advanced version of introductory physics sequence for students with good preparation in physics and mathematics. An introduction to electricity and magnetism and the special theory of relativity. (Spring 2022, 2023, 2025)</p>
+                        </div>
+                          <div>
+                            <h3 class="font-semibold text-slate-800">Phys-15A: Advanced Introductory Physics I</h3>
+                            <p class="text-sm text-slate-600 mt-1">An advanced version of introductory physics sequence for students with good preparation in physics and mathematics. An introduction to Newtonian mechanics with special applications to several topics. (Fall 2021, 2022, 2024)</p>
+                        </div>
+                           <div>
+                            <h3 class="font-semibold text-slate-800">Higgs and Electroweak Physics - Experiment</h3>
+                            <p class="text-sm text-slate-600 mt-1">17th Fermilab-CERN Hadron Collider <a href="https://indico.fnal.gov/event/54596/"class="text-blue-500 hover:underline">Physics Summer School</a>. (August 2022)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Resources Section -->
+                <section id="resources" class="section mt-16">
+                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">Resources</h2>
+                     <div class="space-y-4">
+                        <!-- Resource Item -->
+                        <div>
+                            <a href="https://hsf-training.org/training-center/"class="text-blue-500 hover:underline">HEP software foundation training center</a>
+                            <p class="text-sm text-slate-600 mt-1">Basic skills for HEP software (UNIX shell, python, ROOT, SSH, etc.).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="section mt-16">
+                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">Contact</h2>
+                    <div class="grid md:grid-cols-2 gap-8 text-slate-600">
+                        <div>
+                            <h3 class="font-semibold text-lg text-slate-800">Mailing Address</h3>
+                            <p class="mt-2 leading-relaxed">
+                                Aram Apyan, MS 057<br>
+                                Brandeis University<br>
+                                415 South Street<br>
+                                Waltham, MA 02453
+                            </p>
+                            <h3 class="font-semibold text-lg text-slate-800 mt-6">Email</h3>
+                            <p class="mt-2">
+                                <a href="mailto:arapyan at brandeis dot edu" class="text-blue-500 hover:underline">arapyan at brandeis dot edu</a>
+                            </p>
+                        </div>
+                        <div>
+                            <div class="bg-slate-200 rounded-lg h-64 w-full overflow-hidden">
+                                <a href="https://www.google.com/maps/place/Brandeis+Abelson+Physics+Building/@42.3664879,-71.2610605,832m/data=!3m3!1e3!4b1!5s0x89e38315cb190907:0x122c8b1f4cadfc07!4m6!3m5!1s0x89e38315ef599d6f:0xc73d006cdf747bb0!8m2!3d42.3664879!4d-71.2584856!16s%2Fg%2F11dfq68qgy?entry=ttu&g_ep=EgoyMDI1MDkyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                                     <img src="campus_map.png" alt="Map of Brandeis University" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Footer -->
+                <footer class="text-center mt-16 pt-8 border-t text-sm text-slate-500">
+                    <p>&copy; <span id="current-year"></span> Dr. Aram Apyan. All Rights Reserved.</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+
+        mobileMenuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Close mobile sidebar when a nav link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) { // md breakpoint
+                    sidebar.classList.add('-translate-x-full');
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
