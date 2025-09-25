@@ -108,18 +108,41 @@
                     </div>
                 </section>
 
+             
                 <!-- News Section -->
-                <section id="news" class="section mb-16">
-                    <h2 class="text-3xl font-bold border-b pb-2 mb-6 text-slate-900">News</h2>
-                    <div class="relative border-l-2 border-slate-200 pl-8 space-y-8">
-                        <!-- Timeline Item -->
-                        <div class="relative timeline-item">
+                 <section id="news" class="section mb-16">
+                    <div class="flex justify-between items-center border-b pb-2 mb-6">
+                        <h2 class="text-3xl font-bold text-slate-900">News</h2>
+                        <button id="toggle-news-btn" class="text-sm font-semibold text-blue-500 hover:underline focus:outline-none">Hide</button>
+                    </div>
+                    
+                    <div id="news-content" class="relative border-l-2 border-slate-200 pl-8 space-y-8">
+                        
+                        <div class="relative">
                             <p class="text-sm text-slate-500">July 2025</p>
-                            <h3 class="font-semibold text-slate-800 mt-1">Daniel and Aram were featured in a <a href="https://www.symmetrymagazine.org/article/lhc-scientists-find-relics-of-early-universe-living-on-in-particle-spins?language_content_entity=und"class="text-blue-500 hover:underline">Symmetry Magazine article</a>.
+                            <h3 class="font-semibold text-slate-800 mt-1">Daniel and Aram were featured in a <a href="https://www.symmetrymagazine.org/article/lhc-scientists-find-relics-of-early-universe-living-on-in-particle-spins?language_content_entity=und"class="text-blue-500 hover:underline">Symmetry Magazine article</a>. More information on this recent paper can be found in our  <a href="https://atlas.cern/Updates/Briefing/VBS-Polarisation"class="text-blue-500 hover:underline">ATLAS Physics Briefing</a>.
                             </h3>
+                        </div>
+
+                        <div class="relative">
+                            <p class="text-sm text-slate-500">June 2025</p>
+                            <h3 class="font-semibold text-slate-800 mt-1">Aram and Mike traveled to CERN for the ATLAS MBL workshop and ATLAS week. Daniel and Todd presented at the MBL workshop. We also found Todd at CERN.</a>.
+                            </h3>
+                        </div>
+
+                        <div class="relative">
+                            <p class="text-sm text-slate-500">May 2025</p>
+                            <h3 class="font-semibold text-slate-800 mt-1">
+                                Congratulations to Dr. Todd Zenger! Brandeis Commencement 2025.
+                            </h3>
+                            <img src="todd.jpeg" 
+                                 alt="Todd's commencement" 
+                                 class="mt-4 rounded-lg shadow-md max-w-52 border">
                         </div>
                     </div>
                 </section>
+
+
 
                 <!-- Research Section -->
                 <section id="research" class="section mb-16">
@@ -272,6 +295,22 @@
                             <p class="text-sm text-slate-500">Now: MS Student at Brandeis University</p>
                         </div>
                     </div>
+
+                     <h3 class="text-2xl font-semibold mb-6 mt-12 text-slate-800">Group photos</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md border transition-shadow hover:shadow-xl">
+                            <img src="cern-june.jpg" alt="A photo from a group outing" class="w-full h-48 object-cover">
+                            <div class="p-3">
+                                <p class="text-sm text-slate-600 text-center">MBL workshop and ATLAS Week at CERN, June 2025</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md border transition-shadow hover:shadow-xl">
+                            <img src="luigia.jpg" alt="A photo from a group outing" class="w-full h-48 object-cover">
+                            <div class="p-3">
+                                <p class="text-sm text-slate-600 text-center">One of many dinners at Luigia, February 2024</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Publications Section -->
@@ -405,7 +444,9 @@
         </main>
     </div>-->
 
+
     <script>
+        // --- Keep your existing script content here ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const sidebar = document.getElementById('sidebar');
 
@@ -413,17 +454,34 @@
             sidebar.classList.toggle('-translate-x-full');
         });
 
-        // Close mobile sidebar when a nav link is clicked
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth < 768) { // md breakpoint
+                if (window.innerWidth < 768) {
                     sidebar.classList.add('-translate-x-full');
                 }
             });
         });
 
-        // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+
+        // ===== ADD THIS NEW CODE =====
+        const toggleNewsBtn = document.getElementById('toggle-news-btn');
+        const newsContent = document.getElementById('news-content');
+
+        toggleNewsBtn.addEventListener('click', () => {
+            newsContent.classList.toggle('hidden');
+            // Change button text based on visibility
+            if (newsContent.classList.contains('hidden')) {
+                toggleNewsBtn.textContent = 'Show';
+            } else {
+                toggleNewsBtn.textContent = 'Hide';
+            }
+        });
+        // ===== END OF NEW CODE =====
+
     </script>
+
+
 </body>
 </html>
