@@ -435,17 +435,18 @@
                         </div>
                     </div>
                 </section>
-                
-                <!-- Footer -->
-        <!--           <footer class="text-center mt-16 pt-8 border-t text-sm text-slate-500">
-                    <p>&copy; <span id="current-year"></span> Dr. Aram Apyan. All Rights Reserved.</p>
+
+
+        <footer class="text-center mt-16 pt-8 border-t text-sm text-slate-500">
+                    <p>© <span id="current-year"></span> Dr. Aram Apyan. All Rights Reserved.</p>
                 </footer>
             </div>
         </main>
-    </div>-->
+         </div>
 
+   
     <script>
-        // --- Keep your existing script content here ---
+        // For the mobile sidebar menu
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const sidebar = document.getElementById('sidebar');
 
@@ -453,31 +454,32 @@
             sidebar.classList.toggle('-translate-x-full');
         });
 
+        // Hides mobile sidebar when a nav link is clicked
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth < 768) {
+                if (window.innerWidth < 768) { 
                     sidebar.classList.add('-translate-x-full');
                 }
             });
         });
 
+        // Sets the current year in the footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-
-        // ===== ADD THIS NEW CODE =====
+        // --- CODE FOR THE COLLAPSIBLE NEWS SECTION ---
         const toggleNewsBtn = document.getElementById('toggle-news-btn');
         const newsContent = document.getElementById('news-content');
 
         toggleNewsBtn.addEventListener('click', () => {
+            // Toggles the 'hidden' class on the news content
             newsContent.classList.toggle('hidden');
-            // Change button text based on visibility
+            
+            // Changes the button's text
             if (newsContent.classList.contains('hidden')) {
                 toggleNewsBtn.textContent = 'Show';
             } else {
                 toggleNewsBtn.textContent = 'Hide';
             }
         });
-        // ===== END OF NEW CODE =====
-
     </script>
 </body>
