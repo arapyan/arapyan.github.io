@@ -117,7 +117,24 @@
                     </div>
 
                       <div id="news-content" class="relative border-l-2 border-slate-200 pl-8 space-y-8">
+                     
+                      
+                      <div class="relative">
+                            <p class="text-sm text-slate-500">December 2025</p>
+                            <h3 class="font-semibold text-slate-800 mt-1">
+                                Aram traveled to CERN to attend the ATLAS end-of-year physics workshop and to present a talk at the ATLAS Timing Workshop.
+                            </h3>
+                        </div>
 
+                      <div class="relative">
+                            <p class="text-sm text-slate-500">November 2025</p>
+                            <h3 class="font-semibold text-slate-800 mt-1">
+                                Siddharth presented a poster at the LHCC poster session.
+                            </h3>
+                            <img src="siddharth.jpg" 
+                                 alt="conference photo" 
+                                 class="mt-4 rounded-lg shadow-md max-w-52 border">   
+                        </div>
 
                      <div class="relative">
                             <p class="text-sm text-slate-500">November 2025</p>
@@ -307,7 +324,7 @@
                         </div>
                           <!-- Team Member -->
                          <div class="text-center">
-                            <img src="https://media.licdn.com/dms/image/v2/D4E03AQEAMm5RVjlRyQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700402779031?e=1765411200&v=beta&t=B9ggTd7H4CjpoRBmfis5t613Q2AVc9cEtRVnznh-WQ8" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E03AQEAMm5RVjlRyQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1700402779031?e=1767830400&v=beta&t=gu8g0Fg7_eOr60wMaOGeEQWwThQv30-newwIlQ2nlVw" class="w-24 h-24 rounded-full mx-auto shadow-md mb-2 object-cover">
                             <h3 class="font-bold text-slate-800">Zach Grossman</h3>
                             <p class="text-sm text-slate-500">Undergraduate Student</p>
                         </div>
@@ -371,6 +388,21 @@
 
                      <h3 class="text-2xl font-semibold mb-6 mt-12 text-slate-800">Lab Life</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                            <div class="bg-white rounded-lg overflow-hidden shadow-md border transition-shadow hover:shadow-xl">
+                            <img src="brandeis_dinner.jpg" alt="A photo from a group outing" class="w-full h-48 object-cover">
+                            <div class="p-3">
+                                <p class="text-sm text-slate-600 text-center">Brandeis group dinner at CERN, December 2025</p>
+                            </div>
+                        </div>
+
+                          <div class="bg-white rounded-lg overflow-hidden shadow-md border transition-shadow hover:shadow-xl">
+                            <img src="bowling.jpeg" alt="A photo from a group outing" class="w-full h-48 object-cover">
+                            <div class="p-3">
+                                <p class="text-sm text-slate-600 text-center">Bowling after the MBI 2025 conference, October 2025</p>
+                            </div>
+                        </div>
+
                         <div class="bg-white rounded-lg overflow-hidden shadow-md border transition-shadow hover:shadow-xl">
                             <img src="cern-june.jpg" alt="A photo from a group outing" class="w-full h-48 object-cover">
                             <div class="p-3">
@@ -383,12 +415,7 @@
                                 <p class="text-sm text-slate-600 text-center">One of many dinners at Luigia, February 2024</p>
                             </div>
                         </div>
-                          <div class="bg-white rounded-lg overflow-hidden shadow-md border transition-shadow hover:shadow-xl">
-                            <img src="bowling.jpeg" alt="A photo from a group outing" class="w-full h-48 object-cover">
-                            <div class="p-3">
-                                <p class="text-sm text-slate-600 text-center">Bowling after the MBI 2025 conference, October 2025</p>
-                            </div>
-                        </div>
+                        
                     </div>
                 </section>
 
@@ -545,20 +572,14 @@
         // Sets the current year in the footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // --- CODE FOR THE COLLAPSIBLE NEWS SECTION ---
-        const toggleNewsBtn = document.getElementById('toggle-news-btn');
-        const newsContent = document.getElementById('news-content');
+       
+    const toggleNewsBtn = document.getElementById('toggle-news-btn');
+    const newsContent = document.getElementById('news-content');
 
-        toggleNewsBtn.addEventListener('click', () => {
-            // Toggles the 'hidden' class on the news content
-            newsContent.classList.toggle('hidden');
-            
-            // Changes the button's text
-            if (newsContent.classList.contains('hidden')) {
-                toggleNewsBtn.textContent = 'Show';
-            } else {
-                toggleNewsBtn.textContent = 'Hide';
-            }
-        });
+    toggleNewsBtn.addEventListener('click', () => {
+        const isHidden = newsContent.classList.toggle('hidden');
+        toggleNewsBtn.textContent = isHidden ? 'Show' : 'Hide';
+    });
+    
     </script>
 </body>
