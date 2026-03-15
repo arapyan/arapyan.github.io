@@ -113,7 +113,7 @@
                  <section id="news" class="section mb-16">
                     <div class="flex justify-between items-center border-b pb-2 mb-6">
                         <h2 class="text-3xl font-bold text-slate-900">News</h2>
-                        <button id="toggle-news-btn" class="text-sm font-semibold text-blue-500 hover:underline focus:outline-none">Hide</button>
+                        <button id="toggle-news-btn" class="text-sm font-semibold text-blue-500 hover:underline focus:outline-none">Show more</button>
                     </div>
 
                       <div id="news-content" class="relative border-l-2 border-slate-200 pl-8 space-y-8">
@@ -596,11 +596,20 @@
 
        
     const toggleNewsBtn = document.getElementById('toggle-news-btn');
-    const newsContent = document.getElementById('news-content');
+    const newsItems = document.querySelectorAll('#news-content > .relative');
+    const VISIBLE_COUNT = 4;
+    let expanded = false;
+
+    newsItems.forEach((item, i) => {
+        if (i >= VISIBLE_COUNT) item.classList.add('hidden');
+    });
 
     toggleNewsBtn.addEventListener('click', () => {
-        const isHidden = newsContent.classList.toggle('hidden');
-        toggleNewsBtn.textContent = isHidden ? 'Show' : 'Hide';
+        expanded = !expanded;
+        newsItems.forEach((item, i) => {
+            if (i >= VISIBLE_COUNT) item.classList.toggle('hidden', !expanded);
+        });
+        toggleNewsBtn.textContent = expanded ? 'Show less' : 'Show more';
     });
     
     </script>
